@@ -1,13 +1,13 @@
 class Normal {
-  double xPos;
-  double yPos;
-  double speed;
-  double angle;
-  int colorRed;
-  int colorGreen;
-  int colorBlue;
+  private float xPos;
+  private float yPos;
+  private float speed;
+  private float angle;
+  private int colorRed;
+  private int colorGreen;
+  private int colorBlue;
   
-  Normal( double xPos,double yPos, double speed, double angle, int colorRed, int colorGreen, int colorBlue){
+  Normal(float xPos,float yPos, float speed, float angle, int colorRed, int colorGreen, int colorBlue){
     this.xPos = xPos;
     this.yPos = yPos;
     this.speed = speed;
@@ -16,8 +16,24 @@ class Normal {
     this.colorGreen = colorGreen;
     this.colorBlue = colorBlue;
   }
-  
-  void move(){
-    xPos += cos(angle) * speed;
+  void show(){
+    fill(colorRed, colorGreen, colorBlue);
+    pushMatrix();
+    translate(xPos,yPos);
+    ellipse(20*cos(radians(speed*  angle)),20*sin(radians(speed* angle)), 10, 10);
+    popMatrix();
+    
+    /*
+    pushMatrix();
+    translate(20*sin(radians(speed* angle)), 20*sin(radians(speed* angle)));
+    ellipse(10*cos(radians(speed*  angle)),10*sin(radians(speed* angle)), 10, 10);
+    popMatrix();
+    */
   }
+  void move(){
+    angle ++;
+  }
+  
+  
+  
 }
