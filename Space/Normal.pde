@@ -1,11 +1,11 @@
 class Normal {
-  private float xPos;
-  private float yPos;
-  private float speed;
-  private float angle;
-  private int colorRed;
-  private int colorGreen;
-  private int colorBlue;
+  protected float xPos;
+  protected float yPos;
+  protected float speed;
+  protected float angle;
+  protected int colorRed;
+  protected int colorGreen;
+  protected int colorBlue;
   
   Normal(float xPos,float yPos, float speed, float angle, int colorRed, int colorGreen, int colorBlue){
     this.xPos = xPos;
@@ -23,12 +23,11 @@ class Normal {
     ellipse(20*cos(radians(speed*  angle)),20*sin(radians(speed* angle)), 10, 10);
     popMatrix();
     
-    /*
     pushMatrix();
-    translate(20*sin(radians(speed* angle)), 20*sin(radians(speed* angle)));
+    translate(20*sin(radians(speed* angle)) + 100, 20*sin(radians(speed* angle))+ 100);
     ellipse(10*cos(radians(speed*  angle)),10*sin(radians(speed* angle)), 10, 10);
     popMatrix();
-    */
+   
   }
   void move(){
     angle ++;
