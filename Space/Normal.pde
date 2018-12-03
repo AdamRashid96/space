@@ -19,11 +19,13 @@ class Normal {
   void show(){
     fill(colorRed, colorGreen, colorBlue);
     pushMatrix();
+    noStroke();
     translate(xPos,yPos);
     ellipse(20*cos(radians(speed*  angle)),20*sin(radians(speed* angle)), 10, 10);
     popMatrix();
     
     pushMatrix();
+    noStroke();
     translate(20*sin(radians(speed* angle)) + 100, 20*sin(radians(speed* angle))+ 100);
     ellipse(10*cos(radians(speed*  angle)),10*sin(radians(speed* angle)), 10, 10);
     popMatrix();
