@@ -21,13 +21,16 @@ class Normal {
     pushMatrix();
     noStroke();
     translate(xPos,yPos);
-    ellipse(20*cos(radians(speed*  angle)),20*sin(radians(speed* angle)), 10, 10);
+    ellipse(4* (cos(radians(angle))+ radians(angle) * sin(radians(angle))), 4 * (sin(radians(angle)) + radians(angle) * cos(radians(angle))), 10, 10);
+    //ellipse(20 * (4.5 * cos(radians(angle)) + 3 * cos(1.5 * radians(angle))),20 *(4.5 * sin(radians(angle)) - 3 * sin(1.5 * radians(angle))), 10, 10); //Star
+    //ellipse(50 * (sin( 7 * PI * radians(angle))),50 * (cos(5 * PI * radians(angle))), 10, 10); //Square
+    //ellipse(20*cos(radians(speed* angle)),20*sin(radians(speed* angle)), 10, 10); //Circle
     popMatrix();
     
     pushMatrix();
     noStroke();
     translate(20*sin(radians(speed* angle)) + 100, 20*sin(radians(speed* angle))+ 100);
-    ellipse(10*cos(radians(speed*  angle)),10*sin(radians(speed* angle)), 10, 10);
+    ellipse(10*cos(radians(speed*  angle)),10* sin(radians(speed* angle)), 5, 5);
     popMatrix();
    
   }

@@ -3,8 +3,17 @@ class Oddball extends Normal {
   int yDir;  
   Oddball(float xPos, float yPos, float speed, float angle, int colorRed, int colorGreen, int colorBlue) {
     super(xPos, yPos, speed, angle, colorRed, colorGreen, colorBlue);
-    xDir = 1;
-    yDir = 1;
+    if(random(0,1) >= 0.5){
+      xDir = 1;
+    } else {
+      xDir = -1;
+    }
+    
+    if(random(0,1) >= 0.5){
+      yDir = 1;
+    } else {
+      yDir = -1;
+    }
   }
 
   void show() {

@@ -6,12 +6,11 @@ Oddball square;
 void setup() {
   size(700, 600);
   background(200);
-  frameRate(30);
   noStroke();
   particle = new Normal(350, 300, 5, 30, 0, 0, 200);
-  square = new Oddball(350, 300, 5, 30, 0, 0, 200);
+  //square = new Oddball(350, 300, 5, 30, 0, 0, 200);
   particles = new Normal[500];
-
+  /*
   for (int i = 0; i < particles.length - 1; i++) {
     double checker = Math.random();
     if (checker > 0.05) {
@@ -20,16 +19,17 @@ void setup() {
       particles[i] = new Oddball(random(250, 450), random(200, 400), random(2, 10), 30, 0, 200, 0);
     }
   }
-  
-  particles[particles.length - 1] = new Jumbo(random(250, 450), random(200, 400), random(2, 10), 30, 0, 255, 0);
+  */
+  //particles[particles.length - 1] = new Jumbo(random(250, 450), random(200, 400), random(2, 10), 30, 0, 255, 0);
   
 } //end of setup
 
 
 void draw() {
   //background(200);
-  fill(200, 30);
-  rect(0, 0, width, height); 
+  //fill(200, 10);
+  //rect(0, 0, width, height); 
+  /*
   for (int i = 0; i < particles.length; i++) {
     particles[i].show();
   }
@@ -37,8 +37,9 @@ void draw() {
   for (int i = 0; i < particles.length; i++) {
     particles[i].move();
   }
-  square.show();
-  square.move();
+  */
+  //square.show();
+  //square.move();
   particle.show();
   particle.move();
 } //end of draw
