@@ -1,8 +1,8 @@
 class Oddball extends Normal {
   int xDir;
   int yDir;  
-  Oddball(float xPos, float yPos, float speed, float angle, int colorRed, int colorGreen, int colorBlue) {
-    super(xPos, yPos, speed, angle, colorRed, colorGreen, colorBlue);
+  Oddball(float xPos, float yPos, float size, float startingPos, int colorRed, int colorGreen, int colorBlue, int shape) {
+    super(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue, shape);
     if(random(0,1) >= 0.5){
       xDir = 1;
     } else {

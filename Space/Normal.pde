@@ -1,43 +1,47 @@
 class Normal {
   protected float xPos;
   protected float yPos;
-  protected float speed;
-  protected float angle;
+  protected float size;
+  protected float startingPos;
   protected int colorRed;
   protected int colorGreen;
   protected int colorBlue;
-  
-  Normal(float xPos,float yPos, float speed, float angle, int colorRed, int colorGreen, int colorBlue){
+  protected int shape;
+
+  Normal(float xPos, float yPos, float size, float startingPos, int colorRed, int colorGreen, int colorBlue, int shape) {
     this.xPos = xPos;
     this.yPos = yPos;
-    this.speed = speed;
-    this.angle = angle;
+    this.size = size;
+    this.startingPos = startingPos;
     this.colorRed = colorRed;
     this.colorGreen = colorGreen;
     this.colorBlue = colorBlue;
+    this.shape = shape;
   }
-  void show(){
+  void show() {
     fill(colorRed, colorGreen, colorBlue);
     pushMatrix();
     noStroke();
-    translate(xPos,yPos);
-    ellipse(4* (cos(radians(angle))+ radians(angle) * sin(radians(angle))), 4 * (sin(radians(angle)) + radians(angle) * cos(radians(angle))), 10, 10);
-    //ellipse(20 * (4.5 * cos(radians(angle)) + 3 * cos(1.5 * radians(angle))),20 *(4.5 * sin(radians(angle)) - 3 * sin(1.5 * radians(angle))), 10, 10); //Star
-    //ellipse(50 * (sin( 7 * PI * radians(angle))),50 * (cos(5 * PI * radians(angle))), 10, 10); //Square
-    //ellipse(20*cos(radians(speed* angle)),20*sin(radians(speed* angle)), 10, 10); //Circle
+    translate(xPos, yPos);
+    switch(shape) {
+    case 1:
+      ellipse((size/2)* (cos(radians(startingPos))+ radians(startingPos) * sin(radians(startingPos))), (size/2) * (sin(radians(startingPos)) + radians(startingPos) * cos(radians(startingPos))), 5, 5); //Spiral
+      break;
+    case 2:
+      ellipse(size * (4.5 * cos(radians(startingPos)) + 3 * cos(1.5 * radians(startingPos))), size *(4.5 * sin(radians(startingPos)) - 3 * sin(1.5 * radians(startingPos))), 5, 5); //Star
+      break;
+    case 3:
+      ellipse((2*size) * (sin( 7 * PI * radians(startingPos))), (2*size) * (cos(5 * PI * radians(startingPos))), 5, 5); //Square
+      break;
+    }
     popMatrix();
-    
-    pushMatrix();
-    noStroke();
-    translate(20*sin(radians(speed* angle)) + 100, 20*sin(radians(speed* angle))+ 100);
-    ellipse(10*cos(radians(speed*  angle)),10* sin(radians(speed* angle)), 5, 5);
-    popMatrix();
-   
-  }
-  void move(){
-    angle ++;
   }
   
+  void setShape(int x){
+    shape = x;
+  }
   
-  
+  void move() {
+    startingPos ++;
+  }
 }
