@@ -1,9 +1,7 @@
 //Declare your variables here
 // so try declaring one Particle first, then instantiate it in setup, and use move and show in draw()
-Normal[] particles;
-Normal particle;
-Oddball square;
-
+  Normal[] particles;
+  Star[] stars;
   float xPos = random(250, 450);
   float yPos = random(200, 400);
   float size = 20;
@@ -15,11 +13,16 @@ Oddball square;
   
 void setup() {
   size(700, 600);
-  background(200);
-  noStroke();
-  //particle = new Normal(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue,shape);
-  //square = new Oddball(350, 300, 5, 30, 0, 0, 200, 1);
+  background(0);
+  stars = new Star[200];
   particles = new Normal[600];
+  
+  for (int i = 0; i < stars.length - 1; i++) {
+    int x_Pos = (int)random(0, 700);
+    int y_Pos = (int)random(0, 600);
+    stars[i] = new Star(x_Pos, y_Pos);
+  }
+  
   for (int i = 0; i < particles.length - 1; i++) {
     startingPos = random(2, 500);
     double checker = Math.random();
@@ -30,14 +33,22 @@ void setup() {
     }
   }
   
-  particles[particles.length - 1] = new Jumbo(random(250, 450), random(200, 400), random(2, 10), 30, 0, 255, 0,shape);
+  particles[particles.length - 1] = new Jumbo(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue,shape);
   
 } //end of setup
 
 
 void draw() {
-  fill(200, 30);
+  fill(0, 30);
   rect(0, 0, width, height); 
+  
+  for (int i = 0; i < stars.length- 1; i++) {
+    stars[i].show();
+  }
+  
+  for (int i = 0; i < stars.length-1; i++) {
+    stars[i].twinkle();
+  }
   
   for (int i = 0; i < particles.length; i++) {
     particles[i].show();
@@ -46,18 +57,30 @@ void draw() {
   for (int i = 0; i < particles.length; i++) {
     particles[i].move();
   }
-  
-  //square.show();
-  //square.move();
-  //particle.show();
-  //particle.move();
 } //end of draw
 
 void mouseReleased(){
   int z = (int)random(1,4);
-  background(200);
-  for (int i = 0; i < particles.length; i++) {
-    particles[i].setShape(z);
+  xPos = random(150, 500);
+  yPos = random(100, 500);
+  colorRed = (int)random(0, 255);
+  colorGreen = (int)random(0, 255);
+  colorBlue = (int)random(0, 255);
+  background(0);
+  for (int i = 0; i < particles.length - 1; i++) {
+    if (z == 3){
+      startingPos = random(2, 50);
+    } else {
+      startingPos = random(2, 500); 
+    }
+    double checker = Math.random();
+    if (checker > 0.05) {
+      particles[i] = new Normal(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue,z);
+    } else {
+      particles[i] = new Oddball(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue,z);
+    }
   }
+  
+  particles[particles.length - 1] = new Jumbo(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue,z);
 
 }

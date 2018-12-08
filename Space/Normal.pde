@@ -21,7 +21,7 @@ class Normal {
   void show() {
     fill(colorRed, colorGreen, colorBlue);
     pushMatrix();
-    noStroke();
+    stroke(2);
     translate(xPos, yPos);
     switch(shape) {
     case 1:
@@ -31,17 +31,21 @@ class Normal {
       ellipse(size * (4.5 * cos(radians(startingPos)) + 3 * cos(1.5 * radians(startingPos))), size *(4.5 * sin(radians(startingPos)) - 3 * sin(1.5 * radians(startingPos))), 5, 5); //Star
       break;
     case 3:
-      ellipse((2*size) * (sin( 7 * PI * radians(startingPos))), (2*size) * (cos(5 * PI * radians(startingPos))), 5, 5); //Square
+      ellipse((6*size) * (sin( 7 * PI * radians(startingPos))), (6*size) * (cos(5 * PI * radians(startingPos))), 5, 5); //Square
       break;
     }
     popMatrix();
   }
-  
-  void setShape(int x){
+
+  void setShape(int x) {
     shape = x;
   }
-  
+
   void move() {
-    startingPos ++;
+    if (shape == 3) {
+      startingPos += 0.1;
+    } else {
+      startingPos += 2;
+    }
   }
 }
