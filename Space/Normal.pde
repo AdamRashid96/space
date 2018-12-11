@@ -33,6 +33,9 @@ class Normal {
     case 3:
       ellipse((6*size) * (sin( 7 * PI * radians(startingPos))), (6*size) * (cos(5 * PI * radians(startingPos))), 5, 5); //Square
       break;
+    case 4:
+      ellipse((size/4) * ( ( -31) * cos(radians(startingPos)) - 3 * cos((-11.6 + 1) * radians(startingPos))), (size/4) * ( (-31) * sin(radians(startingPos)) - 3 * sin((-11.6 + 1) * radians(startingPos))), 5, 5);
+      break;
     }
     popMatrix();
   }

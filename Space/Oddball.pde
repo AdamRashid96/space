@@ -21,6 +21,7 @@ class Oddball extends Normal {
     fill(colorRed/2 +75, colorGreen/2 + 20, colorBlue/2 + 100);
     rect(xPos, yPos, 20, 20);
   }
+  
   void move() {
     if (xPos >= 670 && xDir == 1) {
       xDir = -1;

@@ -3,7 +3,7 @@ class Jumbo extends Normal{
     super(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue, shape);
    }
    
-   @Override
+
   void show() {
     fill(colorRed, colorGreen, colorBlue);
     pushMatrix();
@@ -18,6 +18,9 @@ class Jumbo extends Normal{
       break;
     case 3:
       ellipse((6*size) * (sin( 7 * PI * radians(startingPos))), (6*size) * (cos(5 * PI * radians(startingPos))), 15, 15); //Square
+      break;
+    case 4:
+      ellipse((size/4) * ( ( -31) * cos(radians(startingPos)) - 3 * cos((-11.6 + 1) * radians(startingPos))), (size/4) * ( (-31) * sin(radians(startingPos)) - 3 * sin((-11.6 + 1) * radians(startingPos))), 15, 15);
       break;
     }
     popMatrix();
