@@ -4,7 +4,7 @@ Normal[] particles;
 Star[] stars;
 float xPos = random(250, 450);
 float yPos = random(200, 400);
-float size = random(10, 30);
+float radius = random(10, 30);
 float startingPos = random(2, 50);
 int colorRed = 0;
 int colorGreen = 200;
@@ -28,13 +28,13 @@ void setup() {
     startingPos = random(2, 500);
     double checker = Math.random();
     if (checker < 0.5) {
-      particles[i] = new Normal(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue, shape);
+      particles[i] = new Normal(xPos, yPos, radius, startingPos, colorRed, colorGreen, colorBlue, shape);
     } else {
-      particles[i] = new Oddball(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue, shape);
+      particles[i] = new Oddball(xPos, yPos, radius, startingPos, colorRed, colorGreen, colorBlue, shape);
     }
   }
 
-  particles[particles.length - 1] = new Jumbo(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue, shape);
+  particles[particles.length - 1] = new Jumbo(xPos, yPos, radius, startingPos, colorRed, colorGreen, colorBlue, shape);
 } //end of setup
 
 
@@ -63,7 +63,7 @@ void mouseReleased() {
   int z = (int)random(1, 5);
   xPos = random(150, 500);
   yPos = random(100, 500);
-  size = random(10, 30);
+  radius = random(10, 30);
   colorRed = (int)random(0, 255);
   colorGreen = (int)random(0, 255);
   colorBlue = (int)random(0, 255);
@@ -76,11 +76,11 @@ void mouseReleased() {
     }
     double checker = Math.random();
     if (checker > 0.05) {
-      particles[i] = new Normal(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue, z);
+      particles[i] = new Normal(xPos, yPos, radius, startingPos, colorRed, colorGreen, colorBlue, z);
     } else {
-      particles[i] = new Oddball(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue, z);
+      particles[i] = new Oddball(xPos, yPos, radius, startingPos, colorRed, colorGreen, colorBlue, z);
     }
   }
 
-  particles[particles.length - 1] = new Jumbo(xPos, yPos, size, startingPos, colorRed, colorGreen, colorBlue, z);
+  particles[particles.length - 1] = new Jumbo(xPos, yPos, radius, startingPos, colorRed, colorGreen, colorBlue, z);
 }
